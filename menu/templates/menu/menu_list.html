@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Меню ресторана</title>
+</head>
+<body>
+    <h1>Наше меню</h1>
+    {% for category in categories %}
+        <h2>{{ category.name }}</h2>
+        <ul>
+            {% for dish in category.dish_set.all %}
+                <li>
+                    <h3>{{ dish.name }}</h3>
+                    <p>{{ dish.description }}</p>
+                    <p>Цена: {{ dish.price }} руб.</p>
+                    <button>Добавить в заказ</button>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</body>
+</html>
